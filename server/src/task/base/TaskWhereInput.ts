@@ -11,24 +11,25 @@ https://docs.amplication.com/docs/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { IntNullableFilter } from "../../util/IntNullableFilter";
 import { Type } from "class-transformer";
 import { IsOptional, ValidateNested } from "class-validator";
 import { StringFilter } from "../../util/StringFilter";
 import { ProjectWhereUniqueInput } from "../../project/base/ProjectWhereUniqueInput";
+import { StringNullableFilter } from "../../util/StringNullableFilter";
 import { UserWhereUniqueInput } from "../../user/base/UserWhereUniqueInput";
 @InputType()
 class TaskWhereInput {
   @ApiProperty({
     required: false,
-    type: StringNullableFilter,
+    type: IntNullableFilter,
   })
-  @Type(() => StringNullableFilter)
+  @Type(() => IntNullableFilter)
   @IsOptional()
-  @Field(() => StringNullableFilter, {
+  @Field(() => IntNullableFilter, {
     nullable: true,
   })
-  estimation?: StringNullableFilter;
+  estimation?: IntNullableFilter;
 
   @ApiProperty({
     required: false,

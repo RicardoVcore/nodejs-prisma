@@ -34,7 +34,7 @@ model Project {
 
 model Task {
   createdAt  DateTime @default(now())
-  estimation String?
+  estimation Int?
   id         String   @id @default(cuid())
   project    Project? @relation(fields: [projectId], references: [id])
   projectId  String?

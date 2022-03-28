@@ -11,7 +11,7 @@ https://docs.amplication.com/docs/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsString, IsOptional, ValidateNested } from "class-validator";
+import { IsInt, IsOptional, ValidateNested, IsString } from "class-validator";
 import { ProjectWhereUniqueInput } from "../../project/base/ProjectWhereUniqueInput";
 import { Type } from "class-transformer";
 import { UserWhereUniqueInput } from "../../user/base/UserWhereUniqueInput";
@@ -19,14 +19,14 @@ import { UserWhereUniqueInput } from "../../user/base/UserWhereUniqueInput";
 class TaskUpdateInput {
   @ApiProperty({
     required: false,
-    type: String,
+    type: Number,
   })
-  @IsString()
+  @IsInt()
   @IsOptional()
-  @Field(() => String, {
+  @Field(() => Number, {
     nullable: true,
   })
-  estimation?: string | null;
+  estimation?: number | null;
 
   @ApiProperty({
     required: false,
