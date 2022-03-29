@@ -30,6 +30,17 @@ class ProjectCreateInput {
 
   @ApiProperty({
     required: false,
+  })
+  @IsDate()
+  @Type(() => Date)
+  @IsOptional()
+  @Field(() => Date, {
+    nullable: true,
+  })
+  dueDate?: Date | null;
+
+  @ApiProperty({
+    required: false,
     type: String,
   })
   @IsString()
