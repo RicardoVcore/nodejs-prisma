@@ -10,6 +10,7 @@ import {
   TextInput,
 } from "react-admin";
 
+import { LocationTitle } from "../location/LocationTitle";
 import { ProjectTitle } from "../project/ProjectTitle";
 import { UserTitle } from "../user/UserTitle";
 
@@ -18,6 +19,13 @@ export const TaskCreate = (props: CreateProps): React.ReactElement => {
     <Create {...props}>
       <SimpleForm>
         <NumberInput step={1} label="Estimation" source="estimation" />
+        <ReferenceInput
+          source="location.id"
+          reference="Location"
+          label="Location"
+        >
+          <SelectInput optionText={LocationTitle} />
+        </ReferenceInput>
         <ReferenceInput source="project.id" reference="Project" label="Project">
           <SelectInput optionText={ProjectTitle} />
         </ReferenceInput>
